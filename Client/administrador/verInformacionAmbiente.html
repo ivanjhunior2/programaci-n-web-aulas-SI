@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>AdminitradorAula</title>
+</head>
+<body>
+    <div class="container">
+
+            <div class="green-bg">
+                <h3>Información del Ambiente</h3>
+            </div>
+        
+    
+        <p>
+            <label>Nombre:</label> Aula 101
+        </p>
+        <p>
+            <label>Descripción:</label> Descripción del Aula 101
+        </p>
+        <p>
+            <label>Capacidad:</label> 30 personas
+        </p>
+        <p>
+            <label>Habilitado:</label> Sí
+        </p>
+        <p>
+            <label>Tipo de Ambiente:</label> Aula
+        </p>
+        <p>
+            <label>Facilidades:</label>
+            <ul class="facilidades-list">
+                <li class="facilidad-item">
+                    Data Display
+                </li>
+                <li class="facilidad-item">
+                    Cableado Red y Eléctrico
+                </li>
+                <!-- Agrega más facilidades según sea necesario -->
+            </ul>
+        </p>
+        <p>
+            <div class="boton-verde" id="cerrarVista">
+                <p>Cerrar Vista</p>
+              </div>
+        </p>
+   
+    </div>
+   <!--
+   <script>
+        document.getElementById("cerrarVista").addEventListener("click", function() {
+        window.location.href = "listarAmbientes.html";
+      });
+
+    </script>-->
+
+        //Ejemplo de como se esta pasando por local storage un dato 
+        <p id="idMostrado"></p>
+    
+    <script>
+        var id = localStorage.getItem('id');
+        var elementoMostrado = document.getElementById('idMostrado');
+        elementoMostrado.textContent = "ID: " + id;
+    </script>    
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cerrarVistaBtn = document.getElementById("cerrarVista");
+  
+      cerrarVistaBtn.addEventListener("click", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const origen = urlParams.get('origen');
+  
+        if (origen) {
+          window.location.href = origen;
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+    });
+  </script>
+  
+     
+        
+
+</body> 
+</html>

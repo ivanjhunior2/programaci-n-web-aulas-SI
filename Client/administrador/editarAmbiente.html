@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+    
+        <div class="green-bg">
+            <h1>Actualizar Datos del Ambiente</h1>
+        </div>
+
+        <form>
+            <label for="nombreAmbiente">Nombre Ambiente:</label>
+            <input type="text" id="nombreAmbiente" name="nombreAmbiente" required>
+      
+            <label for="capacidad">Capacidad:</label>
+            <input type="text" id="capacidad" name="capacidad" required pattern="[0-9]+" title="Por favor, ingrese solo números.">
+
+            <label for="descripcion"> Breve Descripción del Ambiente:</label>
+            <input type="text" id="descripcion" name="descripcion" required >
+
+            <label for="tipoAmbiente">Tipo de Ambiente:</label>
+            <select id="tipoAmbiente" name="tipoAmbiente" required>
+                <option value="Aula">Aula</option>
+                <option value="Laboratorio">Laboratorio</option>
+                <option value="Auditorio">Auditorio</option>
+            </select>
+
+            <label for="facilidades">Facilidades ofrecidas:</label>
+            <select id="facilidad" name="facilidad[]" multiple required>
+                <option value="dataDisplay">Data Display</option>
+                <option value="conectividadInternet">Conexión a Internet</option>
+                <option value="cableadoRed">Mesas con cableado eléctrico y Red</option>
+            </select>
+
+            <button id="actualizarAmbiente" type="submit">Actualizar Datos</button>
+        </form>
+
+    </div>
+          
+      
+      <script>
+        document.getElementById("actualizarAmbiente").addEventListener("click", function() {
+          window.location.href = "adminMenu.html";
+        });
+      </script>   
+
+    Ejemplo de como se esta pasando por local storage un dato 
+        <p id="idMostrado"></p>
+
+    <script>
+    var id = localStorage.getItem('id');
+    var elementoMostrado = document.getElementById('idMostrado');
+    elementoMostrado.textContent = "ID: " + id;
+    </script>
+
+</body>
+</html>

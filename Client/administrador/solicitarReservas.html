@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Lista de Ambientes</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="green-bg">
+        <h1>Reservas de Aula</h1>
+      </div>
+      <div>
+        <p class="p-orientadores">Seleccione el criterio por el cual desea
+          realizar la búsqueda del aula para Rerservar</p>
+      </div>
+      <div class="selector-busqueda">
+        <label for="filtro">Filtrar por:</label>
+        <select id="filtro">
+          <option value="todas">Todas</option>
+          <option value="nombre">Nombre</option>
+          <option value="capacidad">Capacidad</option>
+        </select>
+        <input type="text" id="filtroInput" placeholder="Buscar..."/>
+        <button onclick="filtrarAulas()">Buscar </button>
+
+        <!-- Lista de Aulas -->
+        <table id="tablaAulas">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Capacidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="listaAulas">
+            <!-- Aquí se mostrarán las aulas -->
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="solicitarReservas.js"></script>
+  </body>
+</html>

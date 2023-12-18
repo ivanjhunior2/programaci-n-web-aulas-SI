@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+    
+        <div class="green-bg">
+            <h1>Solicitar Nueva Reserva</h1>
+        </div>
+
+        <p>
+            <label>Nombre:</label> Aula 101
+        </p>
+        <p>
+            <label>Descripción:</label> Descripción del Aula 101
+        </p>
+        <p>
+            <label>Capacidad:</label> 30 personas
+        </p>
+        <p>
+            <label>Habilitado:</label> Sí
+        </p>
+        <p>
+            <label>Tipo de Ambiente:</label> Aula
+        </p>
+        <p>
+            <label>Facilidades:</label>
+            <ul class="facilidades-list">
+                <li class="facilidad-item">
+                    <alt=Data Display>
+                    Data Display
+                </li>
+                <li class="facilidad-item">
+                    <alt=Cableado Red y Eléctrico>
+                    Cableado Red y Eléctrico
+                </li>
+               
+            </ul>
+        </p>
+
+        <!-- Formulario de Reserva -->
+    <form id="reservaForm">
+        <label for="fechaReserva">Fecha de Reserva:</label>
+        <input type="date" id="fechaReserva" min="" required>
+  
+        <label for="horaInicio"  style="margin-top: 10px;">Hora de Inicio:</label>
+        <select id="horaInicio" required>
+          <!-- Options generados con JavaScript -->
+        </select>
+  
+        <label for="horaFin">Hora de Fin:</label>
+        <select id="horaFin" required>
+          <!-- Options generados con JavaScript -->
+        </select>
+  
+        <button id="reservar" type="submit">Reservar</button>
+      </form>
+      <br>
+
+        Recuperamos el Id del aula seleccionada
+     <p id="idMostrado"></p>
+    
+    <script>
+    var id = localStorage.getItem('id');
+    var elementoMostrado = document.getElementById('idMostrado');
+    elementoMostrado.textContent = "ID: " + id;
+    </script>
+    
+    <script src="registrarReserva.js"></script>
+
+    <script>
+        document.getElementById("reservar").addEventListener("click", function() {
+          window.location.href = "menuUsuario.html";
+        });
+      </script> 
+
+</body>
+</html>

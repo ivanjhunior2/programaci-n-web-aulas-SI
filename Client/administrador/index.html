@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iniciar sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="./Imagenes/fcyt.jpeg" alt="Descripción de la imagen" width="300" height="200">
+    <h2>Iniciar sesión</h2>
+    <form>
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button id="iniciarsesion" type="submit">Iniciar sesión</button>
+    </form>
+  </div>
+</body>
+</html>
+
+<script>
+  document.getElementById("iniciarsesion").addEventListener("click", function() {
+    window.location.href = "adminMenu.html";
+  });
+</script>

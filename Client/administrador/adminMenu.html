@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>AdminitradorAula</title>
+</head>
+<body>
+	<div class="container">
+	    <div class="green-bg">
+            <h1>Administrador</h1>
+		</div>
+		
+		<div class="button-container"> 
+            <div class="button" id="registrarAmbiente">
+                 <img src="./Imagenes/crearNuevo.png" alt="Registrar Ambiente">
+                 <p>Crear Ambiente</p>
+            </div>
+
+            <div class="button" id="editarAmbiente">
+                <img src="./Imagenes/editar.png" alt="Actualizar Ambiente">
+                <p>Editar Ambiente</p>
+            </div>
+
+            <div class="button" id="listarAmbientes">
+              <img src="./Imagenes/listar.png" alt="Listar Ambiente">
+              <p>Listar Ambientes</p>
+            </div>
+
+             <div class="button">
+                 <img src="./Imagenes/borrar.png" alt="Crear Ambiente">
+                <p>Eliminar Ambiente</p>
+            </div>
+
+            <div class="button" id="registrarAmbienteBloque">
+                <img src="./Imagenes/crearBloque.png" alt="Crear Ambiente">
+               <p> Registrar por Lote</p>
+           </div>
+
+           <div class="button" id="gestionarReservas">
+				<img src="./Imagenes/editar.png" alt="Gestiornar Reservas">
+				<p>Revisar Reservas</p>
+			</div>
+		</div>
+        
+    </div>
+    <script>
+        document.getElementById("registrarAmbiente").addEventListener("click", function() {
+          window.location.href = "registrarAmbiente.html";
+        });
+
+        document.getElementById("editarAmbiente").addEventListener("click", function() {
+          window.location.href = "editarAmbiente.html";
+        });
+
+        document.getElementById("listarAmbientes").addEventListener("click", function() {
+          window.location.href = "listarAmbientes.html";
+        });
+
+        document.getElementById("registrarAmbienteBloque").addEventListener("click", function() {
+          window.location.href = "registrarAmbientePorLote.html";
+        });
+
+        document.getElementById("gestionarReservas").addEventListener("click", function() {
+          window.location.href = "gestionarReservas.html";
+        });
+			
+	</script>
+</body>
+</html>

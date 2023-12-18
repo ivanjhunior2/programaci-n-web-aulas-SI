@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>AdminitradorAula</title>
+</head>
+<body>
+    <div class="container">
+        <div class="green-bg">
+            <h3>Crear Ambiente por Lote</h3>
+        </div>
+    
+        <label>Revise su Información:</label>
+        <ul>
+              <li>Toda la información solicitada debe estar completa y correctamente llenada.</li>
+              <li>La columna capacidad solo puede contener números naturales positivos.</li>
+              <li>La columna Tipo de Ambiente y facilidades solo puede ser completada con datos previamente existentes en su base de datos.</li>
+         </ul>
+
+  <form action="" method="post" enctype="multipart/form-data">
+    <label>Seleccione el archivo CSV:</label>
+    <input type="file" name="archivo_csv" accept=".csv" required style="margin-bottom: 10px;">
+
+    <button type="submit">Cargar Datos</button>
+  </form>
+        
+
+</body> 
+</html>
