@@ -15,7 +15,7 @@ CREATE TABLE ambiente (
   nombre VARCHAR(50) UNIQUE NOT NULL,
   descripcion VARCHAR(100),
   capacidad INT NOT NULL,
-  habilitado BOOLEAN,
+  habilitado BOOLEAN DEFAULT TRUE,
   tipo_ambiente_id INT,
   FOREIGN KEY (tipo_ambiente_id) REFERENCES tipo_ambiente(id)
 );

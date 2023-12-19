@@ -2,12 +2,13 @@
 //crear ambiente
 const boton = document.getElementById("registrarAmbiente");
 
-const postAula = (e) =>{
+const putAula = (e) =>{
     e.preventDefault();
     let nombre = document.getElementById("nombreAmbiente").value;
     let capacidad = document.getElementById("capacidad").value;
     let descripcion =document.getElementById("descripcion").value;
     let ambiente = document.getElementById("tipoAmbiente").value;
+    let id = localStorage.getItem('id');
 
     const facilidades = Array.from(document.getElementById('facilidad').options)
     .filter(option => option.selected)
@@ -21,8 +22,8 @@ const postAula = (e) =>{
         facilidades
     }
 
-    fetch('http://localhost:4000/ambientes',{
-        method : 'POST' ,
+    fetch(`http://localhost:4000/ambientes/${id}`,{
+        method : 'PUT' ,
         headers: {
             'Content-Type': 'application/json'
         },
@@ -42,4 +43,4 @@ const postAula = (e) =>{
 }
 
 
-boton.addEventListener('click', postAula);
+boton.addEventListener('click', putAula);
