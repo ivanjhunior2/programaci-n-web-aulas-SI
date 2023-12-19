@@ -52,7 +52,6 @@ function mostrarAulas() {
         });
 }
 
-//Esta función es para que no se pase Id por la URL si no se almacenen en local storage como variable global 
 function redireccionEditarConID(id) {
     localStorage.setItem('id', id);
     window.location.href = 'editarAmbiente.html';
@@ -102,12 +101,12 @@ async function eliminarAula(id) {
 }
 
 
-// function redireccionVerConID(id) {
-//     localStorage.setItem('id', id);
-//     const urlDestino = "verInformacionAmbiente.html?origen=listarAmbientes.html";
-//     window.location.href = urlDestino;
+function redireccionVerConID(id) {
+    localStorage.setItem('id', id);
+    const urlDestino = "verInformacionAmbiente.html?origen=listarAmbientes.html";
+    window.location.href = urlDestino;
 
-//   }
+  }
 
 
 mostrarAulas();

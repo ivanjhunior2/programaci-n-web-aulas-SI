@@ -12,60 +12,17 @@
             <div class="green-bg">
                 <h3>Información del Ambiente</h3>
             </div>
-        
-    
-        <p>
-            <label>Nombre:</label> Aula 101
-        </p>
-        <p>
-            <label>Descripción:</label> Descripción del Aula 101
-        </p>
-        <p>
-            <label>Capacidad:</label> 30 personas
-        </p>
-        <p>
-            <label>Habilitado:</label> Sí
-        </p>
-        <p>
-            <label>Tipo de Ambiente:</label> Aula
-        </p>
-        <p>
-            <label>Facilidades:</label>
-            <ul class="facilidades-list">
-                <li class="facilidad-item">
-                    Data Display
-                </li>
-                <li class="facilidad-item">
-                    Cableado Red y Eléctrico
-                </li>
-                <!-- Agrega más facilidades según sea necesario -->
-            </ul>
-        </p>
-        <p>
+                <div id = "info"></div>
             <div class="boton-verde" id="cerrarVista">
                 <p>Cerrar Vista</p>
               </div>
         </p>
    
     </div>
-   <!--
-   <script>
-        document.getElementById("cerrarVista").addEventListener("click", function() {
-        window.location.href = "listarAmbientes.html";
-      });
 
-    </script>-->
-
-        //Ejemplo de como se esta pasando por local storage un dato 
-        <p id="idMostrado"></p>
+    <script src="scriptGetID.js"></script>
     
     <script>
-        var id = localStorage.getItem('id');
-        var elementoMostrado = document.getElementById('idMostrado');
-        elementoMostrado.textContent = "ID: " + id;
-    </script>    
-
-<script>
     document.addEventListener("DOMContentLoaded", function () {
       const cerrarVistaBtn = document.getElementById("cerrarVista");
   
@@ -82,8 +39,5 @@
     });
   </script>
   
-     
-        
-
 </body> 
 </html>

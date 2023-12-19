@@ -22,7 +22,7 @@ const putAula = (e) =>{
         facilidades
     }
 
-    fetch(`http://localhost:4000/ambientes${id}`,{
+    fetch(`http://localhost:4000/ambientes/${id}`,{
         method : 'PUT' ,
         headers: {
             'Content-Type': 'application/json'
