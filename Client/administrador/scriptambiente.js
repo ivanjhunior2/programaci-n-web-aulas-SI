@@ -20,7 +20,7 @@ const postAula = (e) => {
         ambiente,
         facilidades
     }
-
+    
     fetch('http://localhost:4000/ambientes', {
         method: 'POST',
         headers: {
@@ -30,6 +30,7 @@ const postAula = (e) => {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             document.getElementById('nombreAmbiente').value = '';
             document.getElementById('capacidad').value = '';
             document.getElementById('descripcion').value = '';
@@ -41,7 +42,7 @@ const postAula = (e) => {
         .catch(error => {
             console.error('Error al crear el aula:', error);
         });
-
 }
 
 boton.addEventListener('click', postAula);
+

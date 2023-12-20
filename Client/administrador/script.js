@@ -9,6 +9,8 @@
 // 	{ id: '7', nombre: 'Aula 105', capacidad: 30, descripcion: 'Aula de conferencias' },
 //     { id: '8', nombre: 'Aula 205', capacidad: 25, descripcion: 'Aula de laboratorio' },
 // ];
+let aulas;
+const botonBucar = document.getElementById('buscar');
 
 function obtenerAulas() {
     return fetch('http://localhost:4000/ambientes', {
@@ -22,19 +24,20 @@ function obtenerAulas() {
                 throw new Error('Error al obtener la lista de aulas');
             }
             return response.json();
-        })
-        .catch(error => {
+        }).catch(error => {
             console.error('Error:', error.message);
         });
 }
 
+
+
 function mostrarAulas() {
     obtenerAulas()
         .then(aulasMostradas => {
+            aulas = aulasMostradas;
             const listaAulas = document.getElementById('listaAulas');
             listaAulas.innerHTML = '';
-
-            aulasMostradas.forEach(aula => {
+            aulas.forEach(aula => {
                 const tr = document.createElement('tr');
 
                 tr.innerHTML = `
@@ -55,28 +58,29 @@ function mostrarAulas() {
 function redireccionEditarConID(id) {
     localStorage.setItem('id', id);
     window.location.href = 'editarAmbiente.html';
-  }
+}
 
-// function filtrarAulas() {
-//     // Obtener los valores de los elementos de entrada (filtros)
-//     const filtro = document.getElementById('filtro').value.toLowerCase();
-//     const filtroInput = document.getElementById('filtroInput').value.toLowerCase();
+function filtrarAulas(){
+    const filtro = document.getElementById('filtro').value.toLowerCase();
+    const filtroInput = document.getElementById('filtroInput').value.toLowerCase();
+    let aulasFiltradas;
 
-//     let aulasFiltradas;
+    if(filtro === "capacidad"){
+        aulasFiltradas= aulas.filter(a => {return a.capacidad >= filtroInput})
+        console.log(aulasFiltradas);
+        return;
+    }
+    if(filtro === "nombre"){
+        aulasFiltradas = aulas.filter(a => a.nombre.toLowerCase().includes(filtroInput));
+        console.log(aulasFiltradas);
+        return;
+    }else{
+        aulasFiltradas = aulas;
+    }
+    
+    mostrarAulas();
+}
 
-//     if (filtro === 'todas') {
-//         aulasFiltradas = aulas;
-//     } else {
-//         aulasFiltradas = aulas.filter(aula => {
-//             // Convertir el valor de la propiedad a cadena antes de aplicar toLowerCase()
-//             const propiedadAula = filtro === 'capacidad' ? aula[filtro].toString() : aula[filtro];
-//             return propiedadAula.toLowerCase().includes(filtroInput);
-//         });
-//     }
-
-//     // Llamar a la función mostrarAulas para actualizar la interfaz con las aulas filtradas
-//     mostrarAulas(aulasFiltradas);
-// }
 
 async function eliminarAula(id) {
     const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar el aula con ID: ${id}?`);
@@ -111,3 +115,4 @@ function redireccionVerConID(id) {
 
 mostrarAulas();
 
+botonBucar.addEventListener('click', filtrarAulas);
