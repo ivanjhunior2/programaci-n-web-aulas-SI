@@ -56,27 +56,26 @@ const getAmbienteById = async (req, res) => {
 
 const createAmbiente = async (req, res) => {
   const { nombre, descripcion, capacidad, ambiente, facilidades } = req.body;
+  const habilitado = true;
 
-  let habilitado = true;
   try {
-    const result = await db.query(
-      'INSERT INTO ambiente (nombre, descripcion, capacidad, habilitado, tipo_ambiente_id) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+    const resultAmbiente = await db.query(
+      'INSERT INTO ambiente (nombre, descripcion, capacidad, habilitado, tipo_ambiente_id) VALUES ($1, $2, $3, $4, $5) RETURNING id',
       [nombre, descripcion, capacidad, habilitado, ambiente]
     );
-
-    const resultAmbiente = await db.query('SELECT id FROM ambiente WHERE nombre = $1', [nombre]);
-    const IdAmbiente = resultAmbiente.rows[0].id
-
-    await facilidades.forEach(async (e) => {
-      const resultFacilidad = await db.query(
-        'INSERT INTO ambiente_facilidad (ambiente_id,facilidad_id) VALUES ($1, $2) RETURNING *',
-        [IdAmbiente, e]
+    
+    const idAmbiente = resultAmbiente.rows[0].id;
+    for (const facilidadId of facilidades) {
+      await db.query(
+        'INSERT INTO ambiente_facilidad (ambiente_id, facilidad_id) VALUES ($1, $2) RETURNING *',
+        [idAmbiente, facilidadId]
       );
-    });
+    }
 
+    res.status(201).json({ message: 'Ambiente creado con éxito', id: idAmbiente });
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error inserting data into the database');
+    res.status(500).json({ error: 'Error al insertar datos en la base de datos', details: error.message });
   }
 };
 
