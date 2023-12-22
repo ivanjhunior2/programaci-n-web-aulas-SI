@@ -9,6 +9,11 @@ CREATE TABLE tipo_ambiente (
   nombre VARCHAR(50) UNIQUE
 );
 
+INSERT INTO tipo_ambiente (nombre) VALUES
+('Aula'),
+('Laboratorio'),
+('Auditorio');
+
 
 CREATE TABLE ambiente (
   id SERIAL PRIMARY KEY,
@@ -26,6 +31,10 @@ CREATE TABLE facilidad (
   nombre VARCHAR(50) UNIQUE
 );
 
+INSERT INTO facilidad (nombre) VALUES
+  ('Data Display'),
+  ('Conexión a Internet'),
+  ('Mesas con cableado eléctrico y Red');
 
 CREATE TABLE ambiente_facilidad (
   ambiente_id INT,
