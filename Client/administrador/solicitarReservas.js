@@ -1,6 +1,6 @@
 // Ejemplo de datos de aulas (puedes reemplazar esto con datos reales de tu aplicación)
 const aulas = [
-    { id: '1', nombre: 'Aula 101', capacidad: 30, descripcion: 'Aula de conferencias' },
+    { id: '1', nombre: 'Aula 101 probando nombre', capacidad: 30, descripcion: 'Aula de conferencias' },
     { id: '2', nombre: 'Aula 201', capacidad: 25, descripcion: 'Aula de laboratorio' },
 	{ id: '3', nombre: 'Aula 102', capacidad: 30, descripcion: 'Aula de conferencias' },
     { id: '4', nombre: 'Aula 203', capacidad: 25, descripcion: 'Aula de laboratorio' },
@@ -35,9 +35,16 @@ function mostrarAulas(aulasMostradas) {
     aulasMostradas.forEach(aula => {
         const tr = document.createElement('tr');
         
-        tr.innerHTML = `
-            <td>${aula.nombre}</td>
-            <td>${aula.capacidad}</td>
+        // Aplica un estilo al nombre del aula para que no genere nuevas líneas
+        const nombreTd = document.createElement('td');
+        nombreTd.style.maxWidth = '65px';  // Ajusta según sea necesario
+        nombreTd.style.whiteSpace = 'nowrap';
+        nombreTd.style.overflow = 'hidden';
+        nombreTd.style.textOverflow = 'ellipsis';
+        nombreTd.innerHTML = aula.nombre;
+
+        tr.appendChild(nombreTd);
+        tr.innerHTML += `<td>${aula.capacidad}</td>
             <td>
                 <button class="listar-btn" onclick="registrarReservaConID(${aula.id});"><img src="./Imagenes/reservar.png" </button>
                 <button class="listar-btn" onclick="listaReservasConID('${aula.id}')"><img src="./Imagenes/listaReservas.png"></button>

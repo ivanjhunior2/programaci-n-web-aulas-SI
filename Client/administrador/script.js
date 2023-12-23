@@ -48,9 +48,16 @@ function mostrarAulas() {
             aulas.forEach(aula => {
                 const tr = document.createElement('tr');
 
-                tr.innerHTML = `
-                    <td>${aula.nombre}</td>
-                    <td>${aula.capacidad}</td>
+                // Aplica un estilo al nombre del aula para que no genere nuevas líneas
+                const nombreTd = document.createElement('td');
+                nombreTd.style.maxWidth = '60px';  // Ajusta según sea necesario
+                nombreTd.style.whiteSpace = 'nowrap';
+                nombreTd.style.overflow = 'hidden';
+                nombreTd.style.textOverflow = 'ellipsis';
+                nombreTd.innerHTML = aula.nombre;
+
+                tr.appendChild(nombreTd);
+                tr.innerHTML += `<td>${aula.capacidad}</td>
                     <td>
                         <button class="listar-btn" onclick="redireccionEditarConID(${aula.id});"><img src="./Imagenes/editar.png" </button>
                         <button class="listar-btn" onclick="eliminarAula('${aula.id}')"><img src="./Imagenes/borrar.png"></button>
