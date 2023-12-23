@@ -8,9 +8,19 @@
 </head>
 <body>
     <div class="container">
+      <header>      
+        <img class="logo" src="./Imagenes/logo.jpg" alt="logo">
+       <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="adminMenu.html" id="inicio">Inicio</a></li>
+          <li><a href="" id="anterior">Anterior</a></li>
+          <li><a href="index.html" id="cerrar-sesion">Cerrar Sesión</a></li>
+        </ul>
+       </nav>
+    </header>
         <div class="green-bg">
-            <h3>Crear Ambiente por Lote</h3>
-        </div>
+      Crear Aulas Por Lote
+     </div>
     
         <label>Revise su Información:</label>
         <ul>
@@ -25,7 +35,25 @@
 
     <button type="submit">Cargar Datos</button>
   </form>
-        
+  
+  <script>
+    //Función para Enlace Anterior de la Navegación
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtener el enlace "Anterior"
+    var anteriorEnlace = document.getElementById('anterior');
+
+    // Manejar el clic en "Anterior"
+    anteriorEnlace.addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+        // Verificar si la página actual es "adminMenu.html" antes de retroceder
+        if (window.location.pathname !== '/adminMenu.html') {
+            window.history.back();
+        }
+        // Si ya estás en "adminMenu.html", no hagas nada
+    });
+});
+  </script>
 
 </body> 
 </html>
